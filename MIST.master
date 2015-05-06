@@ -1,0 +1,58 @@
+﻿<%@ Master Language="VB" CodeFile="MIST.master.vb" Inherits="MIST" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link rel="Shortcut Icon" href="~/Images/mistlogo.ico" />
+    <title>
+        <asp:ContentPlaceHolder ID="pageTitle" runat="server">
+        </asp:ContentPlaceHolder>
+    </title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div class="wrapper">
+        <form id="form1" runat="server">
+            <asp:ScriptManager ID="ScriptManager1" runat="server">
+            </asp:ScriptManager>
+            <table border="0" cellpadding="2" cellspacing="0" style="margin: 0 auto; width: 90%">
+                <tr>
+                    <td>
+                        <asp:Image runat="server" ImageUrl="~/images/mistlogo.png" Height="90px" />
+                    </td>
+                    <td style="text-align: right; font-weight: bold">Welcome,<br />
+                        <asp:Label ID="userLbl" runat="server" Text="" ForeColor="#5F8EC2" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="wrapper row2">
+                            <asp:Menu ID="topnav" runat="server" Orientation="Horizontal" DataSourceID="SiteMapDataSource1" Font-Bold="true">
+                                <LevelSelectedStyles>
+                                    <asp:MenuItemStyle ForeColor="#5F8EC2"/>
+                                </LevelSelectedStyles>
+                            </asp:Menu>
+                            <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="false" />
+                            <div class="clear"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <div class="push"></div>
+    </div>
+    <div class="footer">
+        <p>
+            LifeStream | 384 W. Orange Show Road, San Bernardino, CA 92408 | MIST version&nbsp;<asp:Literal ID="VersionNum" runat="server" Text="<%$ AppSettings:Version%>" />
+        </p>
+    </div>
+</body>
+</html>
